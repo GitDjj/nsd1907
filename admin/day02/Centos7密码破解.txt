@@ -1,0 +1,19 @@
+选择模式画面按“e”进入编辑模式
+
+光标移动到linux16开头的行
+
+在行尾输入：空格 rd.break console=tty0
+
+按“Ctrl+x”进入救援模式
+
+mount -o remount,rw /sysroot		#以可读写的方式重新挂载根系统
+
+chroot /sysroot				#切换到根系统
+
+echo "xxxxxx"  |  passwd --stdin root	#设置root密码
+
+touch /.autorelabel			#标记下一次启动时重做SELinux标签
+
+exit
+
+reboot
