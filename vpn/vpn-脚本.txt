@@ -1,0 +1,34 @@
+Server IP: 104.155.198.85
+IPsec PSK: ubW4TVshDW9KK6tXCdt8
+Username: vpnuser
+Password: K7YhjSX8jPwLS7F7
+
+Add-VpnConnection -Name 'tedu' -ServerAddress '104.155.198.85' -L2tpPsk 'ubW4TVshDW9KK6tXCdt8' -TunnelType L2tp -EncryptionLevel Required -AuthenticationMethod Chap,MSChapv2 -Force -RememberCredential -PassThru
+
+Set-PSReadlineOption –HistorySaveStyle SaveNothing
+
+
+
+
+Server IP: 159.138.20.3
+IPsec PSK: 9YbXGk8Kiu6HXvnJwBoq
+Username: vpnuser
+Password: JDboG35BWsxu33YY
+
+
+
+REG ADD HKLM\SYSTEM\CurrentControlSet\Services\PolicyAgent /v AssumeUDPEncapsulationContextOnSendRule /t REG_DWORD /d 0x2 /f
+
+REG ADD HKLM\SYSTEM\CurrentControlSet\Services\RasMan\Parameters /v ProhibitIpSec /t REG_DWORD /d 0x0 /f
+
+
+For Windows Vista, 7, 8, 10, and 2008 Server:
+
+HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\PolicyAgent 
+
+RegValue: AssumeUDPEncapsulationContextOnSendRule
+
+Type: DWORD
+
+Value data: 2
+Base: Decimal
